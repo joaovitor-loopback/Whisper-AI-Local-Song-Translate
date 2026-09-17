@@ -1,4 +1,4 @@
-# 🎵 Whisper AI Local Song Translate
+# Song Translate
 
 CLI local para transcrição e tradução automática de faixas de áudio do YouTube (EN/DE/ES/etc. → PT-BR), usando `faster-whisper` (CTranslate2) para ASR e DeepL API ou Argos Translate como back-end de tradução.
 
@@ -22,10 +22,45 @@ Pipeline: `yt-dlp` (download) → `faster-whisper` (ASR + language detection) �
 - FFmpeg no PATH
 - ~2GB livres de RAM para o modelo `small` em int8 (ajuste conforme hardware — ver seção de performance)
 
+Projeto é multiplataforma (Python puro + dependências com wheels para Linux/macOS/Windows). `faster-whisper` roda sobre CTranslate2, que tem build otimizado inclusive para Apple Silicon (M1/M2/M3).
+
+### Instalação por SO
+
+**Linux (Debian/Ubuntu):**
+```bash
+sudo apt install python3 python3-venv ffmpeg git
+```
+
+**Linux (Fedora/Arch):** substitua por `dnf install` ou `pacman -S` conforme o gerenciador de pacotes da distro.
+
+**macOS:**
+```bash
+brew install python ffmpeg git
+```
+
+**Windows:**
+```powershell
+winget install Python.Python.3.11 ffmpeg Git.Git
+```
+> Se instalar o Python via instalador `.exe` em vez de `winget`, marque "Add python.exe to PATH" durante a instalação.
+
+### Setup do projeto
+
 ```bash
 git clone https://github.com/SEU_USUARIO/song-translate.git
 cd song-translate
-python -m venv venv && source venv/bin/activate   # ou .\venv\Scripts\Activate.ps1 no Windows
+python3 -m venv venv
+```
+
+Ativação do venv (varia por shell/SO):
+
+| SO / Shell | Comando |
+|---|---|
+| Linux / macOS (bash, zsh) | `source venv/bin/activate` |
+| Windows (PowerShell) | `.\venv\Scripts\Activate.ps1` |
+| Windows (cmd) | `venv\Scripts\activate.bat` |
+
+```bash
 pip install -r requirements.txt
 ```
 
@@ -119,6 +154,7 @@ Se necessário rodar em CI ou container com recursos restritos, `tiny`/`base` s�
 ## Escopo de uso
 
 Projeto para uso pessoal/local — não realiza redistribuição, cache público ou hospedagem de letras de terceiros. Toda transcrição/tradução é gerada e mantida localmente pelo usuário a partir de áudio processado na própria máquina.
+
 ## Licença
 
 MIT (ou ajuste conforme sua preferência).
