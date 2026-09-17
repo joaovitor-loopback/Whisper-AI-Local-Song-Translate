@@ -1,0 +1,6 @@
+faster-whisper
+yt-dlp
+requests
+python-dotenv
+# opcional, so necessario se for usar --engine argos
+argostranslate

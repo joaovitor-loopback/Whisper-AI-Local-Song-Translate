@@ -1,0 +1,16 @@
+# Ambiente virtual
+venv/
+.venv/
+
+# Variaveis de ambiente / segredos
+.env
+
+# Saida gerada pelo script (audios baixados e transcricoes)
+saida/
+
+# Cache Python
+__pycache__/
+*.pyc
+
+# VS Code
+.vscode/
