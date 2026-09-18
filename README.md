@@ -134,7 +134,7 @@ Se necessário rodar em CI ou container com recursos restritos, `tiny`/`base` s�
 
 ---
 
-## Tratamento de erro / idempotência
+## Tratamento de erro
 
 - Cada URL é processada em bloco `try/except` isolado; falha em um item não aborta o restante do batch.
 - Resumo final: contagem de sucesso/falha + lista de erros por URL.
